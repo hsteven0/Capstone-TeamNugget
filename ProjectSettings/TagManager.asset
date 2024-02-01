@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ground
+  - sky
+  - ball
+  - enemies
   layers:
   - Default
   - TransparentFX
@@ -11,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Background
+  - Enemies
+  - Slingshot
   - 
   - 
   - 
@@ -38,6 +42,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1553249119
+    locked: 0
+  - name: Enemies
+    uniqueID: 1570904947
+    locked: 0
+  - name: Player
+    uniqueID: 3709356157
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
