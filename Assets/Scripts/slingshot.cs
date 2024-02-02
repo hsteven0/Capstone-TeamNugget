@@ -6,28 +6,32 @@ using UnityEngine.SocialPlatforms.GameCenter;
 
 public class slingshot : MonoBehaviour
 {
+    // Strips (slingshot sling)
     public LineRenderer[] lineRenderers ; 
     public Transform[] stripPositions ;
     public Transform anchor ; 
-    bool isMouseDown ;
     public Vector3 currentPosition ; 
+    public float force ; // slingshot collider force: strips with ball
+    public float maxPullBack ; // limits distance user can pull back slingshot
+    // -----------------------
+    bool isMouseDown ; // checks mouse press -> convert to TouchScript Inputs
+    // Ball Spawn
     public GameObject ballPrefab ; 
     public float ballPositionOffset ; 
-    public float spawnDelay = 1.5f ; 
+    public float spawnDelay = 1.5f ; // delay for ball to spawn
+    public bool ballExists = false ; 
 
     Rigidbody2D ball ; 
     Collider2D ballCollider ; 
-
-    public float force ; 
-    public float maxPullBack ; 
+    // --------------------------
 
     void Start() {
-        lineRenderers[0].positionCount = 2 ; 
-        lineRenderers[1].positionCount = 2 ; 
-        lineRenderers[0].SetPosition(0, stripPositions[0].position) ; 
-        lineRenderers[1].SetPosition(0, stripPositions[1].position) ; 
+    lineRenderers[0].positionCount = 2 ; 
+    lineRenderers[1].positionCount = 2 ; 
+    lineRenderers[0].SetPosition(0, stripPositions[0].position) ; 
+    lineRenderers[1].SetPosition(0, stripPositions[1].position) ; 
 
-        CreateBall() ; 
+    CreateBall() ; 
     }
 
     void Update() {
@@ -68,8 +72,10 @@ public class slingshot : MonoBehaviour
         lineRenderers[0].SetPosition(1, position) ; 
         lineRenderers[1].SetPosition(1, position) ; 
 
-        Vector3 dir = position - anchor.position ; 
-        ball.transform.position = position + dir.normalized * ballPositionOffset ; 
+        if (ballExists) { 
+            Vector3 dir = position - anchor.position ; 
+            ball.transform.position = position + dir.normalized * ballPositionOffset ; 
+        }
     }
 
     void CreateBall() {
@@ -78,18 +84,23 @@ public class slingshot : MonoBehaviour
         ballCollider.enabled = false ; 
 
         ball.isKinematic = true ; 
+
+        ballExists = true ; 
     }
 
     void Shoot() {
-        ball.isKinematic = false ; 
+        if (ballExists) {
+            ball.isKinematic = false ; 
 
-        Vector3 ballForce = (currentPosition - anchor.position) * force * -1 ; 
-        ball.velocity = ballForce ; 
+            Vector3 ballForce = (currentPosition - anchor.position) * force * -1 ; 
+            ball.velocity = ballForce ; 
 
-        ball = null ; 
-        ballCollider = null ; 
+            ball = null ; 
+            ballCollider = null ; 
+            ballExists = false ; 
 
-        Invoke("CreateBall", 0.5f) ; 
+            Invoke("CreateBall", spawnDelay) ; 
+        }
     }
 }
 
