@@ -70,6 +70,7 @@ public class slingshot : MonoBehaviour
 
         Vector3 dir = position - anchor.position ; 
         ball.transform.position = position + dir.normalized * ballPositionOffset ; 
+        return ; 
     }
 
     void CreateBall() {
@@ -89,7 +90,8 @@ public class slingshot : MonoBehaviour
         ball = null ; 
         ballCollider = null ; 
 
-        Invoke("CreateBall", 0.5f) ; 
+        // Invoke("CreateBall", 1.5f) ; 
+        CreateBall() ; 
     }
 }
 
