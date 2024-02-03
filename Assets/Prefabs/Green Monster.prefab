@@ -740,3 +740,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   death_effect: {fileID: 8619669428640602867, guid: 9ddacad38c991476bb0441bc50f80e08, type: 3}
+  pointsText: {fileID: 8884946600821166267, guid: 0a2aaecb27db2c44a85ceb41a8ad2e30, type: 3}
+  displayText: 100
