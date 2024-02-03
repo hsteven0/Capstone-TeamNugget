@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1493640745030220640}
   - component: {fileID: 2745898444225996595}
   - component: {fileID: 3301211198585684731}
-  - component: {fileID: -6674407283556105046}
   m_Layer: 7
   m_Name: Green Monster
   m_TagString: enemies
@@ -741,17 +740,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   death_effect: {fileID: 8619669428640602867, guid: 9ddacad38c991476bb0441bc50f80e08, type: 3}
---- !u!114 &-6674407283556105046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000724949976791029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe68ac033f6c436d896cd5f86b97180, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  death_effect: {fileID: 0}
