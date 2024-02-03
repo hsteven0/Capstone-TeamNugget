@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
 {
     public float health = 1f;
     public GameObject death_effect, pointsText;
-    public string displayText;
 
     void OnCollisionEnter2D (Collision2D collInfo) {
         if (collInfo.relativeVelocity.magnitude > health) {
@@ -26,6 +25,6 @@ public class Enemy : MonoBehaviour
     private void Score() {
         GameScore.score += GameScore.points;
         GameObject point = Instantiate(pointsText, transform.position, Quaternion.identity);
-        point.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(displayText);
+        point.transform.GetChild(0).GetComponent<TextMeshPro>().SetText(GameScore.points.ToString());
     }
 }
