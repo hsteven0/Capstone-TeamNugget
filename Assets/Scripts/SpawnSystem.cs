@@ -14,7 +14,7 @@ public class SpawnSystem : MonoBehaviour
 
         // if time has reached spawn delay time
         if (timer >= spawnDelay) {
-            Vector3 randPos = new Vector3(Random.Range(-23, 24), 16, 0);
+            Vector3 randPos = new Vector3(Random.Range(-21, 22), 16, 0);
             Instantiate(enemies[Random.Range(0, enemies.Length)], randPos, Quaternion.identity);
 
             // subtract spawnDelay time from total time; this is more accurate over time
