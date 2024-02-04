@@ -447,7 +447,7 @@ MonoBehaviour:
   currentPosition: {x: 0, y: 0, z: 0}
   force: 5
   maxPullBack: 5
-  ballPrefab: {fileID: 8305842916519901333, guid: 2dfaee314d22f46f3be7f2209a3ec81a, type: 3}
+  ballPrefab: {fileID: 3015718015053694997, guid: 2dfaee314d22f46f3be7f2209a3ec81a, type: 3}
   ballPositionOffset: -0.5
   spawnDelay: 1.5
   ballExists: 0
