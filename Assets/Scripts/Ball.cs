@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private int killCount; // a count of enemies defeated with one ball
+    private int killCount = 0; // a count of enemies defeated with one ball
 
     void OnBecameInvisible() {
         Destroy(gameObject);

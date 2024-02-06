@@ -344,8 +344,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1225073154445175062}
   - component: {fileID: 7116491197620817678}
-  - component: {fileID: 746944033284603680}
   - component: {fileID: 9216669147532580173}
+  - component: {fileID: 8868794106683699827}
+  - component: {fileID: -8016808331265502264}
+  - component: {fileID: 1393518389606507645}
   m_Layer: 8
   m_Name: Slingshot
   m_TagString: Untagged
@@ -425,32 +427,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &746944033284603680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7467777830022409167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e1ccdb853ce4325ab9837d3cc56591, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineRenderers:
-  - {fileID: 5464940508123506231}
-  - {fileID: 7116599985094678205}
-  stripPositions:
-  - {fileID: 3230174006309078089}
-  - {fileID: 5168723759336425709}
-  anchor: {fileID: 1453919393915100282}
-  currentPosition: {x: 0, y: 0, z: 0}
-  force: 5
-  maxPullBack: 5
-  ballPrefab: {fileID: 3015718015053694997, guid: 2dfaee314d22f46f3be7f2209a3ec81a, type: 3}
-  ballPositionOffset: -0.5
-  spawnDelay: 1.5
-  ballExists: 0
 --- !u!61 &9216669147532580173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -496,6 +472,94 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.527761, y: 8.402461}
   m_EdgeRadius: 0
+--- !u!114 &8868794106683699827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467777830022409167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6be551879cd14d739b0188844ef2c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  OnPress:
+    m_PersistentCalls:
+      m_Calls: []
+  ignoreChildren: 0
+--- !u!114 &-8016808331265502264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467777830022409167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141e75b9b7edb42df80a22a14f03ae4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStateChange:
+    m_PersistentCalls:
+      m_Calls: []
+  basicEditor: 1
+  generalProps: 0
+  limitsProps: 0
+  advancedProps: 0
+  minPointers: 0
+  maxPointers: 0
+  useSendMessage: 0
+  sendStateChangeMessages: 0
+  sendMessageTarget: {fileID: 0}
+  useUnityEvents: 0
+  sendStateChangeEvents: 0
+  requireGestureToFail: {fileID: 0}
+  friendlyGestures: []
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  ignoreChildren: 0
+--- !u!114 &1393518389606507645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467777830022409167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e1ccdb853ce4325ab9837d3cc56591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderers:
+  - {fileID: 5464940508123506231}
+  - {fileID: 7116599985094678205}
+  stripPositions:
+  - {fileID: 3230174006309078089}
+  - {fileID: 5168723759336425709}
+  anchor: {fileID: 1453919393915100282}
+  currentPosition: {x: 0, y: 0, z: 0}
+  force: 5
+  maxPullBack: 5
+  ballPrefab: {fileID: 3015718015053694997, guid: 2dfaee314d22f46f3be7f2209a3ec81a, type: 3}
+  ballPositionOffset: -0.5
 --- !u!1 &7630867910862283065
 GameObject:
   m_ObjectHideFlags: 0
