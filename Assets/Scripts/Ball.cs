@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+This class will be used as calculating point multipliers upon contact with enemies.
+*/
 public class Ball : MonoBehaviour
 {
     private int killCount = 0; // a count of enemies defeated with one ball
 
     void OnBecameInvisible() {
-        Destroy(gameObject);
         killCount = 0;
     }
 
