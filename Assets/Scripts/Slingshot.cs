@@ -159,16 +159,22 @@ public class Slingshot : MonoBehaviour
             case "Slingshot Left":
                 return 0.0f;
             case "Slingshot Right":
-                return 2160.0f;
+                return 2 * Screen.width / 3; // 2160.0f
         }
-        return 1080.0f; // middle
+        return Screen.width / 3; // middle = 1080.0f
     }
 
     private void HideImage(Image image)
     {
         // this function hides an image from view, by setting its opacity to 0
         var col = image.color;
-        // col.a = 0.22f;
+        // if (gameObject.name == "Slingshot Left") {
+        //     col.a = 0.33f;
+        // } else if (gameObject.name == "Slingshot Right") {
+        //     col.a = 0.6f;
+        // } else {
+        //     col.a = 0.2f;
+        // }
         col.a = 0f;
         image.color = col;
     }
