@@ -49,6 +49,8 @@ public class Slingshot : MonoBehaviour
             // sling physics
             Vector3 force = -((slingItem.transform.position - centeredPos) * strength);
             itemPhysics.velocity = force;
+            // toggle collision physics
+            slingItem.GetComponent<Collider2D>().enabled = true;
         }
     }
 
@@ -75,8 +77,8 @@ public class Slingshot : MonoBehaviour
         slingItem.tag = "SlingItem";
         // set slingItem position
         slingItem.transform.position = SetControlPosition();
-        // sling item physics 
-        slingItem.GetComponent<Collider2D>().enabled = true;
+        // disable sling item collisions. enable when the SlingItem is in motion
+        slingItem.GetComponent<Collider2D>().enabled = false;
     }
 
     private void CreateControlObject()
