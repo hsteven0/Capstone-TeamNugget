@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LivesSystem : MonoBehaviour
 {
+    public GameOverScreen gameOverScreen;
     private float prevTime;
     private float idleTime;
     public static int lives;
@@ -16,7 +19,10 @@ public class LivesSystem : MonoBehaviour
 
     void Update()
     {
-        
+        // "<" incase multiple enemies die at the same time when lives is 1
+        if (lives <= 0) {
+            GameOver();
+        }
     }
 
     private void PauseGame() {
@@ -28,8 +34,7 @@ public class LivesSystem : MonoBehaviour
         Time.timeScale = prevTime;
     }
 
-    private void ExitToMainMenu() {
-        // use Time.unscaleTime to calculate time when the game is paused.
-        // if time.unscaled >= idleTime { ExitToMainMenu(); }
+    public void GameOver() {
+        gameOverScreen.Show();
     }
 }

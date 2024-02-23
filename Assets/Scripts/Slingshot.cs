@@ -30,6 +30,8 @@ public class Slingshot : MonoBehaviour
 
     private void ControlAngles()
     {
+        if (LivesSystem.lives <= 0 && controlObject != null) controlObject.SetActive(false);
+
         DrawSlingLines();
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
         if (slingItem == null || currentVelocity != Vector2.zero) return;

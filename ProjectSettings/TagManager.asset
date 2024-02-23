@@ -9,11 +9,12 @@ TagManager:
   - SlingItem
   - Sky
   - Ground
+  - Ball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GameOver
   - Water
   - UI
   - Background
