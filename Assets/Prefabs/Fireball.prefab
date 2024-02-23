@@ -5048,7 +5048,7 @@ GameObject:
   - component: {fileID: 2563326235752797828}
   m_Layer: 8
   m_Name: Fireball
-  m_TagString: Ball
+  m_TagString: SlingItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -7,18 +7,25 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 1f;
-    public GameObject death_effect, pointsText;
+    public GameObject deathEffect, pointsText;
 
-    void OnCollisionEnter2D (Collision2D collInfo) {
-        if (collInfo.relativeVelocity.magnitude > health) {
-            Die();
+    void OnCollisionEnter2D(Collision2D collInfo) {
+        // less laggy option to ignore enemy colliding with another enemy
+        // need to optimize
+        if(collInfo.collider.gameObject.layer == 7) return;
+        // reward or punish player(s)
+        if (collInfo.collider.tag == "SlingItem") {
+            Score();
         }
+        else if (collInfo.collider.tag == "Ground") {
+            LivesSystem.lives--;
+        }
+        Die();
     }
 
     void Die() {
-        Score();
-        Instantiate(death_effect, transform.position, Quaternion.identity);
+        GameObject effect = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 1.5f);
         Destroy(gameObject);
     }
 

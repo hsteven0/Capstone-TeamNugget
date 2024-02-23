@@ -70,6 +70,7 @@ public class Slingshot : MonoBehaviour
         slingItem = Instantiate(clonedSlingItem.gameObject);
         // let the Slingshot GameObject be the parent of the slingItem
         slingItem.transform.SetParent(transform);
+        slingItem.tag = "SlingItem";
         // set slingItem position
         slingItem.transform.position = SetControlPosition();
         // sling item physics 

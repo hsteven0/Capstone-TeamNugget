@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
@@ -14,6 +12,7 @@ public class SpawnSystem : MonoBehaviour
 
         // if time has reached spawn delay time
         if (timer >= spawnDelay) {
+            // Vector3 randPos = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0, Screen.width), Screen.height, 10));
             Vector3 randPos = new Vector3(Random.Range(-21, 22), 16, 0);
             Instantiate(enemies[Random.Range(0, enemies.Length)], randPos, Quaternion.identity);
 

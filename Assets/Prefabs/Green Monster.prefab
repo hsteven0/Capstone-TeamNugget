@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3301211198585684731}
   m_Layer: 7
   m_Name: Green Monster
-  m_TagString: enemies
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,6 +738,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe68ac033f6c436d896cd5f86b97180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  death_effect: {fileID: 2923468057094168194, guid: 9ddacad38c991476bb0441bc50f80e08, type: 3}
+  deathEffect: {fileID: 2923468057094168194, guid: 9ddacad38c991476bb0441bc50f80e08, type: 3}
   pointsText: {fileID: 8884946600821166267, guid: 0a2aaecb27db2c44a85ceb41a8ad2e30, type: 3}

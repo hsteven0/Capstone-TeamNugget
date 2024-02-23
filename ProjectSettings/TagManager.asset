@@ -4,11 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ground
-  - sky
-  - Ball
   - Explosion
   - Enemies
+  - SlingItem
+  - Sky
+  - Ground
   layers:
   - Default
   - TransparentFX
