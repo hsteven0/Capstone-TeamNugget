@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 This class controls the gradient of all TextMeshProUI's in the Canvas GameObject
@@ -27,7 +28,7 @@ public class GradientControl : MonoBehaviour
         if (fadeStart < fadeDuration) {
             fadeStart += Time.deltaTime / fadeDuration;
             foreach (TextMeshProUGUI text in textComponents) {
-                if (text.name == "PlayText") continue;
+                if (text.GetComponentInParent<Button>()) continue;
                 // color calculations
                 var colTop = Color.Lerp(colorTop, colorBottom, fadeStart);
                 var colBot = Color.Lerp(colorBottom, colorTop, fadeStart);
