@@ -7,15 +7,17 @@ using System;
 
 public class Slingshot : MonoBehaviour
 {
-    private const float diameter = 3.75f; // circlular bounds for SlingItem when aiming
     private Vector3 centeredPos; // center of the Slingshot (where the SlingItem is placed)
     public Transform clonedSlingItem; // may turn to list if multiple we have sling items
-    private GameObject controlObject;
-    private Vector2 controlStartPos;
-    private GameObject slingItem;
+    private GameObject controlObject; // object that controls the slingshot (both shoot and angle change)
+    private Vector2 controlStartPos; // save start position to calculate translation positions
+    private GameObject slingItem; // cloned object of what is being slung/shot
+    private int activeLayer; // a reference to the "Active" layer
+    private const float diameter = 3.75f; // circlular bounds for SlingItem when aiming
 
     void Start()
     {
+        activeLayer = LayerMask.NameToLayer("Active");
         centeredPos = new Vector3(gameObject.transform.position.x, -8, 0);
         CreateSlingItem();
         CreateLineRenderer();
@@ -51,6 +53,10 @@ public class Slingshot : MonoBehaviour
             itemPhysics.velocity = force;
             // toggle collision physics
             slingItem.GetComponent<Collider2D>().enabled = true;
+
+            // someone used the slingshot; make the slingshot active if it isn't
+            if (gameObject.layer != activeLayer) 
+                gameObject.layer = activeLayer;
         }
     }
 

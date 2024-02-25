@@ -485,6 +485,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+--- !u!1 &428593697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7318000744946165051, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+  m_PrefabInstance: {fileID: 428593696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &469593437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1318,10 @@ MonoBehaviour:
   enemies:
   - {fileID: 1460295513314082119, guid: c6c049521ad414d3abb1f4dbfbefc442, type: 3}
   - {fileID: 1000724949976791029, guid: 0aa752e77577d4e52ae01d6f22931c48, type: 3}
+  slingshots:
+  - {fileID: 1484760389}
+  - {fileID: 4804850473862978583}
+  - {fileID: 428593697}
 --- !u!4 &715440809
 Transform:
   m_ObjectHideFlags: 0
@@ -2069,6 +2078,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+--- !u!1 &1484760389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7318000744946165051, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+  m_PrefabInstance: {fileID: 1484760388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951253312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,6 +2432,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+--- !u!1 &4804850473862978583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7318000744946165051, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+  m_PrefabInstance: {fileID: 4804850473862978582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
