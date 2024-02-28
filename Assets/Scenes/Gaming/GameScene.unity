@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7796821289934868516, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+      propertyPath: clonedSlingItem
+      value: 
+      objectReference: {fileID: 784942708096560256, guid: c6cf86f40c6c7435c982130b10095421, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1139,7 +1143,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bab5cac2cb05d42c4bc463a36b3c5305, type: 3}
-  m_Color: {r: 0.6084906, g: 0.7732718, b: 1, a: 1}
+  m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1329,8 +1333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 1460295513314082119, guid: c6c049521ad414d3abb1f4dbfbefc442, type: 3}
-  - {fileID: 1000724949976791029, guid: 0aa752e77577d4e52ae01d6f22931c48, type: 3}
+  - {fileID: 4863751861037570296, guid: 8e64d8f85477740eab8ca19449ca9317, type: 3}
+  - {fileID: 8771105479821540468, guid: 3ed74eb5e5d8b41918452ed8e8f02513, type: 3}
+  - {fileID: 1082454344319042626, guid: b9150e247297a45ad811b27743a6b67f, type: 3}
   slingshots:
   - {fileID: 1484760389}
   - {fileID: 4804850473862978583}
@@ -2086,6 +2091,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7796821289934868516, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+      propertyPath: clonedSlingItem
+      value: 
+      objectReference: {fileID: 3393529866869299216, guid: 9d0bbe2f93dc24f31903a8788fb57ef1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2440,6 +2449,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7796821289934868516, guid: c21cb75840a9b4782b5a753dc6f49b06, type: 3}
+      propertyPath: clonedSlingItem
+      value: 
+      objectReference: {fileID: 7651713986176454943, guid: 8789b48a9957a4a649f3e071bcb70a58, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

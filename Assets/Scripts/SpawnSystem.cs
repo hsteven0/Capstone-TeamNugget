@@ -1,16 +1,20 @@
+using System.Collections;
+using TouchScript.Examples.Tap;
 using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
 {
     // A list containing various enemies to spawn and the Slingshots on the Game Scene
     public GameObject[] enemies, slingshots;
+
     private int activeLayer; // a reference to the "Active" layer
     private float timer, spawnDelay, slingshotBounds;
+
 
     void Start() {
         // time stuff
         timer = 0.0f;
-        spawnDelay = 2.0f;
+        spawnDelay = 3.5f;
         // screen stuff
         slingshotBounds = Screen.width / 3;
         // idle check stuff
@@ -21,16 +25,57 @@ public class SpawnSystem : MonoBehaviour
     {
         timer += Time.deltaTime;
         // if time has reached spawn delay time
+
+        // Random number generator; favors SpawnMiddle()
+        int randVal = Random.Range(1,11) ; 
+
         if (timer >= spawnDelay) {
             // spawn at slingshot location bounds if it is active
+            // less probability to spawn to far side, more likely in activeLayer and middle
             if (slingshots[0].layer == activeLayer) {
-                SpawnLeft();
+                if (randVal % 2 == 0) {     //  50% chance   
+                    SpawnMiddle() ; 
+                }
+                else if (randVal == 1) {    //  10% chance
+                    SpawnRight() ; 
+                }
+                SpawnLeft();                // 100% chance
             }
             if (slingshots[1].layer == activeLayer) {
-                SpawnMiddle();
+                if (randVal < 3) {
+                    SpawnLeft() ;           //  20% chance  
+                }
+                else if (randVal > 8) {
+                    SpawnRight() ;          //  20% chance
+                }
+                else {
+                    SpawnMiddle();          //  60% chance
+                }
             }
             if (slingshots[2].layer == activeLayer) {
-                SpawnRight();
+                if (randVal % 2 == 1) {
+                    SpawnMiddle() ;         //  50% chance
+                }
+                else if (randVal == 8) {
+                    SpawnLeft() ;           //  10% chance
+                }
+                SpawnRight();               // 100% chance
+            }
+            /* All 3 player scenarios, at MOST: 5 enemies spawn (for one outcome)
+            1 : 2L, 1M, 1R
+            2 : 2L, 1M, 1R
+            3 : 1L, 2M, 1R
+            4 : 1L, 2M, 1R
+            5 : 1L, 2M, 1R
+            6 : 1L, 2M, 1R
+            7 : 1L, 2M, 1R
+            8 : 2L, 2M, 2R
+            9 : 1L, 1M, 2R
+           10 : 1L, 1M, 2R 
+            */
+
+            if ((slingshots[0].layer == activeLayer && slingshots[2].layer == activeLayer) || (slingshots[0].layer == activeLayer && slingshots[1].layer == activeLayer) || (slingshots[1].layer == activeLayer && slingshots[2].layer == activeLayer) ) {
+                spawnDelay = 5.0f ; // increases spawnDelay to offset difficulty given 3 players
             }
 
             // subtract spawnDelay time from total time; this is more accurate over time
