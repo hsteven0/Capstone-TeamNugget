@@ -252,9 +252,17 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 8027610606244575530, guid: 3ed74eb5e5d8b41918452ed8e8f02513, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 8771105479821540468, guid: 3ed74eb5e5d8b41918452ed8e8f02513, type: 3}
       propertyPath: m_Name
       value: meteor_orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771105479821540468, guid: 3ed74eb5e5d8b41918452ed8e8f02513, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 8027610606244575530}
   - component: {fileID: 7520754589325320369}
   - component: {fileID: 1892560638057563988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: meteor_red
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
