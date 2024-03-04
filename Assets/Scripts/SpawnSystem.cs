@@ -88,7 +88,7 @@ public class SpawnSystem : MonoBehaviour
         // spawn outside of the screen (subtract from FIRST param of random range func)
         Vector3 randPos = Camera.main.ScreenToWorldPoint(
                 new Vector3(
-        /* x */     Random.Range(0, slingshotBounds), 
+        /* x */     Random.Range(0+128, slingshotBounds), 
         /* y */     Screen.height, 
         /* z */     10)); // z must be greater than 0 to render sprite on screen using ScreenToWorldPoint()
 
@@ -109,12 +109,12 @@ public class SpawnSystem : MonoBehaviour
     private void SpawnRight() {
         // will need to account for sprite size, so half the enemy sprite does not
         // spawn outside of the screen (subtract from SECOND param of random range func)
-        float rightBounds = 2 * Screen.width / 3;
+        float rightBounds = (2 * Screen.width) / 3;
         Vector3 randPos = Camera.main.ScreenToWorldPoint(
                 new Vector3(
-        /* x */     Random.Range(rightBounds, rightBounds + slingshotBounds), 
+        /* x */     Random.Range(rightBounds, rightBounds + slingshotBounds - 128), 
         /* y */     Screen.height, 
-        /* z */      10));
+        /* z */     10));
 
             Instantiate(enemies[Random.Range(0, enemies.Length)], randPos, Quaternion.identity);
     }
