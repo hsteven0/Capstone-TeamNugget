@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 234909852}
   - component: {fileID: 234909854}
   - component: {fileID: 234909855}
+  - component: {fileID: 234909856}
   m_Layer: 5
   m_Name: GameOverOverlay
   m_TagString: Untagged
@@ -302,6 +303,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a439860e687af245a4680d896672141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &234909856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234909850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a987ce007930cd429128a75ee263337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &417282086
