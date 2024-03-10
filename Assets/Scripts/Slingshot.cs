@@ -39,7 +39,7 @@ public class Slingshot : MonoBehaviour
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
         if (slingItem == null || currentVelocity != Vector2.zero) { 
             // funny rotations
-            slingItem.transform.Rotate(0f, 0f, 360f * Time.deltaTime, Space.Self);
+            slingItem.transform.Rotate(0f, 0f, 620f * Time.deltaTime, Space.Self);
             return; 
         }
         slingItem.transform.position = SetControlPosition();
