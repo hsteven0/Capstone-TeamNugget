@@ -7,11 +7,11 @@ using System;
 
 public class Slingshot : MonoBehaviour
 {
+    public Transform clonedSlingItem, clonedFingerObj; // SlingItem and Finger prefabs
     private Vector3 centeredPos; // center of the Slingshot (where the SlingItem is placed)
-    public Transform clonedSlingItem; // may turn to list if multiple we have sling items
     private GameObject controlObject; // object that controls the slingshot (both shoot and angle change)
     private Vector2 controlStartPos; // save start position to calculate translation positions
-    private GameObject slingItem; // cloned object of what is being slung/shot
+    private GameObject slingItem, fingerObj; // cloned object of what is being slung/shot and the finger itself
     private int activeLayer; // a reference to the "Active" layer
     private const float diameter = 3.75f; // circlular bounds for SlingItem when aiming
 
@@ -21,6 +21,7 @@ public class Slingshot : MonoBehaviour
         centeredPos = new Vector3(gameObject.transform.position.x, -8, 0);
         CreateSlingItem();
         CreateLineRenderer();
+        DisplayFinger();
     }
 
     void Update()
@@ -55,8 +56,10 @@ public class Slingshot : MonoBehaviour
             slingItem.GetComponent<Collider2D>().enabled = true;
 
             // someone used the slingshot; make the slingshot active if it isn't
-            if (gameObject.layer != activeLayer) 
+            if (gameObject.layer != activeLayer && force != Vector3.zero) {
                 gameObject.layer = activeLayer;
+                DeleteFinger();
+            }
         }
     }
 
@@ -120,6 +123,15 @@ public class Slingshot : MonoBehaviour
         // set the Canvas GameObject as parent
         controlObject.transform.SetParent(GameObject.Find("Canvas").transform);
         image.transform.localScale = Vector2.one;
+    }
+
+    private void DisplayFinger() {
+        fingerObj = Instantiate(clonedFingerObj.gameObject);
+        fingerObj.transform.SetParent(transform);
+    }
+
+    private void DeleteFinger() {
+        Destroy(fingerObj);
     }
 
     private void CreateLineRenderer()
