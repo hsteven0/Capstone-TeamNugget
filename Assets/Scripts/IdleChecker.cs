@@ -11,7 +11,7 @@ public class IdleChecker : MonoBehaviour
     void Start()
     {
         timer = 0;
-        idleTime = 5.0f;
+        idleTime = 65.0f;
     }
 
     void Update()
