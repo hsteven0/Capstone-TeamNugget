@@ -61,6 +61,7 @@ public class Slingshot : MonoBehaviour
 
             // someone used the slingshot; make the slingshot active if it isn't
             if (gameObject.layer != activeLayer && force != Vector3.zero) {
+                DisableIdleChecker();
                 gameObject.layer = activeLayer;
                 DeleteFinger();
             }
@@ -204,6 +205,12 @@ public class Slingshot : MonoBehaviour
         // }
         col.a = 0f;
         image.color = col;
+    }
+
+    private void DisableIdleChecker() {
+        // set global active check to true if it isn't
+        if (!IdleChecker.slingshotActive)
+            IdleChecker.slingshotActive = true;
     }
 
     private void CancelGestures()

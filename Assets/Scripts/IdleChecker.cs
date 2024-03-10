@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class IdleChecker : MonoBehaviour
 {
     private float timer, idleTime;
+    public static bool slingshotActive = false;
 
     void Start()
     {
@@ -15,8 +16,9 @@ public class IdleChecker : MonoBehaviour
 
     void Update()
     {
+        if (slingshotActive && gameObject.name.Contains("Sling")) return;
+        
         timer += Time.deltaTime;
-
         if (timer >= idleTime) {
             SceneManager.LoadScene("MainMenuScene");
         }
