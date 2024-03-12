@@ -7,13 +7,14 @@ using System;
 
 public class Slingshot : MonoBehaviour
 {
-    public Transform clonedSlingItem, clonedFingerObj; // SlingItem and Finger prefabs
+    public Transform clonedSlingItem, clonedFingerObj, clonedElastic; // SlingItem, Finger, Elastic prefabs
     private Vector3 centeredPos; // center of the Slingshot (where the SlingItem is placed)
     private GameObject controlObject; // object that controls the slingshot (both shoot and angle change)
     private Vector2 controlStartPos; // save start position to calculate translation positions
-    private GameObject slingItem, fingerObj; // cloned object of what is being slung/shot and the finger itself
+    private GameObject slingItem, fingerObj, elasticObj; // clone of what is being slung, the finger itself, elastic string
     private int activeLayer; // a reference to the "Active" layer
     private const float diameter = 3.75f; // circlular bounds for SlingItem when aiming
+    private LineRenderer lineRenderer;
 
     void Start()
     {
@@ -35,13 +36,22 @@ public class Slingshot : MonoBehaviour
     {
         if (LivesSystem.lives <= 0 && controlObject != null) controlObject.SetActive(false);
 
-        DrawSlingLines();
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
         if (slingItem == null || currentVelocity != Vector2.zero) { 
             // funny rotations
             slingItem.transform.Rotate(0f, 0f, 620f * Time.deltaTime, Space.Self);
-            return; 
+            // make child, destroy and create everytime we shoot
+            if (lineRenderer.enabled) {
+                lineRenderer.enabled = false;
+                SpawnElasticString();
+            }
+            return;
         }
+        if (!lineRenderer.enabled) {
+            lineRenderer.enabled = true;
+            DeleteElasticString();
+        }
+        DrawSlingLines();
         slingItem.transform.position = SetControlPosition();
     }
 
@@ -130,31 +140,17 @@ public class Slingshot : MonoBehaviour
         image.transform.localScale = Vector2.one;
     }
 
-    private void DisplayFinger() {
-        fingerObj = Instantiate(clonedFingerObj.gameObject);
-        fingerObj.transform.SetParent(transform);
-    }
-
-    private void DeleteFinger() {
-        Destroy(fingerObj);
-    }
-
     private void CreateLineRenderer()
     {
-        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-        lineRenderer.widthMultiplier = 0.095f;
+        lineRenderer.widthMultiplier = 0.2f;
         lineRenderer.positionCount = 3;      // total count of lines
         lineRenderer.numCornerVertices = 10; // rounded edges. more string-like appearance.
         lineRenderer.numCapVertices = 10;    // rounded edges. more string-like appearance.
-
-        float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
-        );
-        lineRenderer.colorGradient = gradient;
+        var col = new Color(1, 1, 1, 1);
+        lineRenderer.startColor = col;
+        lineRenderer.endColor = col;
     }
 
     private void DrawSlingLines()
@@ -165,6 +161,25 @@ public class Slingshot : MonoBehaviour
         lineRenderer.SetPosition(0, new Vector3(centeredPos.x - 0.95f, -8.1f, 0.0f));
         lineRenderer.SetPosition(1, (dist <= diameter + 0.1f) ? slingItem.transform.position : centeredPos);
         lineRenderer.SetPosition(2, new Vector3(centeredPos.x + 0.95f, -8.1f, 0.0f));
+    }
+
+    private void SpawnElasticString() {
+        elasticObj = Instantiate(clonedElastic.gameObject);
+        elasticObj.transform.SetParent(transform);
+        elasticObj.transform.position = new Vector3(centeredPos.x - 0.95f, -8.1f, 0.0f);
+    }
+
+    private void DeleteElasticString() {
+        Destroy(elasticObj);
+    }
+
+    private void DisplayFinger() {
+        fingerObj = Instantiate(clonedFingerObj.gameObject);
+        fingerObj.transform.SetParent(transform);
+    }
+
+    private void DeleteFinger() {
+        Destroy(fingerObj);
     }
 
     private Vector3 SetControlPosition()
