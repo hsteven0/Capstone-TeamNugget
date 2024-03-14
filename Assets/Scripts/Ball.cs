@@ -18,14 +18,14 @@ public class Ball : MonoBehaviour
     // gets every object that is destroyed on the scene
     void OnDestroy() {
         // check only for SlingItem tag
-        if (gameObject.tag != "SlingItem") return;
+        if (!gameObject.CompareTag("SlingItem")) return;
         killCount = 0;
         GameScore.points = oldAmount;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag != "Enemies") return;
+        if (!collision.collider.CompareTag("Enemies")) return;
         UpdatePoints();
         killCount++;
     }

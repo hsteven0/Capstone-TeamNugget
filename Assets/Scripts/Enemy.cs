@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collInfo) {
-        if (collInfo.collider.tag == "Ground") {
+        if (collInfo.collider.CompareTag("Ground")) {
             LivesSystem.lives--;
         }
         Die();
