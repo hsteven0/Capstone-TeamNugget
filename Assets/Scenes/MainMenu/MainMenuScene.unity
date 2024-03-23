@@ -207,8 +207,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 108795966}
-  - component: {fileID: 108795967}
-  - component: {fileID: 108795968}
   m_Layer: 5
   m_Name: SoundPanel
   m_TagString: Untagged
@@ -238,39 +236,6 @@ RectTransform:
   m_AnchoredPosition: {x: 60, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &108795967
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108795965}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 099d93ae50fba4345888e2bab5ba365d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &108795968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 108795965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75305d233341cfa42a276f84a110958f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &110876544
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,8 +318,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108795968}
-        m_TargetAssemblyTypeName: EndAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1861543763}
+        m_TargetAssemblyTypeName: PlayAnimation, Assembly-CSharp
         m_MethodName: DisplayOptions
         m_Mode: 1
         m_Arguments:
@@ -561,16 +526,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155432034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1861543758}
+  m_Father: {fileID: 951820211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 340, y: 96}
+  m_AnchoredPosition: {x: 560, y: -184}
   m_SizeDelta: {x: 1000, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155432036
@@ -1377,7 +1342,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 155432035}
   m_Father: {fileID: 1861543758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -1907,12 +1873,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 075a15118effc1f4599993b084fa2359, type: 3}
   musicSource: {fileID: 1674866498}
   effectsSource: {fileID: 1333217324}
-  disabledMusic: {fileID: 21300000, guid: 5d85bf16c62c2384aac898b2408d2d5d, type: 3}
-  disabledEffects: {fileID: 21300000, guid: fbb00f5225ca22e4ca931d2c48694bbe, type: 3}
-  enabledMusic: {fileID: 21300000, guid: 85936d6d8634c104f9edf5c562aef569, type: 3}
-  enabledEffects: {fileID: 21300000, guid: 488a57b0ba07824469e30050b839ee3b, type: 3}
-  musicButton: {fileID: 1580578456}
-  effectsButton: {fileID: 1216367978}
 --- !u!4 &1274597869
 Transform:
   m_ObjectHideFlags: 0
@@ -2474,8 +2434,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 108795968}
-        m_TargetAssemblyTypeName: EndAnimation, Assembly-CSharp
+      - m_Target: {fileID: 1861543763}
+        m_TargetAssemblyTypeName: PlayAnimation, Assembly-CSharp
         m_MethodName: CloseOptions
         m_Mode: 1
         m_Arguments:
@@ -3134,7 +3094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1830789022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3207,6 +3167,8 @@ GameObject:
   - component: {fileID: 1861543755}
   - component: {fileID: 1861543759}
   - component: {fileID: 1861543760}
+  - component: {fileID: 1861543762}
+  - component: {fileID: 1861543763}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3291,7 +3253,6 @@ RectTransform:
   m_Children:
   - {fileID: 1830789022}
   - {fileID: 951820211}
-  - {fileID: 155432035}
   - {fileID: 142463295}
   - {fileID: 881620533}
   - {fileID: 110876545}
@@ -3341,6 +3302,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1262801743}
   effectsSlider: {fileID: 1752768992}
+  musicButton: {fileID: 1580578456}
+  effectsButton: {fileID: 1216367978}
+  disabledMusic: {fileID: 21300000, guid: 5d85bf16c62c2384aac898b2408d2d5d, type: 3}
+  disabledEffects: {fileID: 21300000, guid: fbb00f5225ca22e4ca931d2c48694bbe, type: 3}
+  enabledMusic: {fileID: 21300000, guid: 85936d6d8634c104f9edf5c562aef569, type: 3}
+  enabledEffects: {fileID: 21300000, guid: 488a57b0ba07824469e30050b839ee3b, type: 3}
+--- !u!95 &1861543762
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861543754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af841a07c479c9842b028f4fff1a4bb7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1861543763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861543754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75305d233341cfa42a276f84a110958f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2106533064
 GameObject:
   m_ObjectHideFlags: 0
