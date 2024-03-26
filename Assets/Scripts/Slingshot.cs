@@ -34,13 +34,21 @@ public class Slingshot : MonoBehaviour
 
     private void ControlAngles()
     {
+        // TODO: early return here? probably
         if (LivesSystem.lives <= 0 && controlObject != null) controlObject.SetActive(false);
 
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
         if (slingItem == null || currentVelocity != Vector2.zero) { 
             // funny rotations
             slingItem.transform.Rotate(0f, 0f, 620f * Time.deltaTime, Space.Self);
-            // make child, destroy and create everytime we shoot
+
+            // TODO: redo this; make it so that elastic string becomes visible and lineRenderer
+            // is disabled when slingItem collides with the elastic string, instead of 
+            // being instantly disabled and spawned when slinging. Also, need to limit
+            // stretch distance somehow to prevent wonky rendering (most likely 
+            // requires an additional script attached to the elastic string. this script
+            // will let it collide until some stretch check returns true, and turns off 
+            // collision with the slingItem)
             if (lineRenderer.enabled) {
                 lineRenderer.enabled = false;
                 SpawnElasticString();
@@ -63,7 +71,10 @@ public class Slingshot : MonoBehaviour
         // calculate and add sling velocity, if there is none
         if (itemPhysics.velocity == Vector2.zero)
         {
-            // sling physics
+            // sling physics 
+            // - TODO: apply constant speed by some x multiplier/scalar (strength var).
+            //         let the (slingItem.transform.position - centeredPos) calculation
+            //         determine the travel direction.
             Vector3 force = -((slingItem.transform.position - centeredPos) * strength);
             itemPhysics.velocity = force;
             // toggle collision physics
@@ -259,10 +270,16 @@ public class Slingshot : MonoBehaviour
 
     private void pressedHandler(object sender, System.EventArgs e)
     {
+        SoundManager.soundManager.PlayEffect("ElasticPulling");
     }
 
     private void releasedHandler(object sender, System.EventArgs e)
     {
+        // TODO: can "ElasticPulling" be specifically stopped? 
+        // this stops every soundfx but its not that noticable unless theres lots of shit happening
+        // Will probably need to put ElasticPulling into its own EffectsSource
+        SoundManager.soundManager.effectsSource.Stop();
+        SoundManager.soundManager.PlayEffect("ElasticFiring");
         Sling();
     }
 }

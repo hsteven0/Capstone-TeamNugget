@@ -17,11 +17,15 @@ public class VolumeController : MonoBehaviour
     }
 
     public void ToggleMusic() {
+        SoundManager.soundManager.PlayEffect("ButtonClick");
         SoundManager.soundManager.ToggleMusic();
         UpdateButtonSprites();
     }
 
     public void ToggleEffects() {
+        // instantly mutes, so button click will not play when muting the effects
+        // - may leave as is so user knows that the effects are toggled off
+        SoundManager.soundManager.PlayEffect("ButtonClick");
         SoundManager.soundManager.ToggleEffects();
         UpdateButtonSprites();
     }

@@ -3,21 +3,27 @@ using UnityEngine;
 public class PlayAnimation : MonoBehaviour
 {
     private Animator anim;
+    private bool isOpen;
 
     void Start()
     {
+        isOpen = false;
         anim = GetComponent<Animator>();
     }
 
     public void DisplayOptions() {
-        if (anim != null) {
+        if (anim != null && !isOpen) {
+            SoundManager.soundManager.PlayEffect("ButtonClick");
             anim.SetTrigger("OptionsPressed");
+            isOpen = true;
         }
     }
 
     public void CloseOptions() {
-        if (anim != null) {
+        if (anim != null && isOpen) {
+            SoundManager.soundManager.PlayEffect("ButtonClick");
             anim.Play("Base Layer.Return", 0, 0);
+            isOpen = false;
         }
     }
 

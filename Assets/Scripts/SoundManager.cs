@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
     }
 
     void Start() {
-        PlayMusic("Spongebob Guitar");
+        PlayMusic("Thrash");
     }
 
     public void PlayMusic(string name) {

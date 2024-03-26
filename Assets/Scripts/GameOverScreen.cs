@@ -14,10 +14,12 @@ public class GameOverScreen : MonoBehaviour
     }
 
     public void RestartGame() {
+        SoundManager.soundManager.PlayEffect("ButtonClick");
         SceneManager.LoadScene("GameScene");
     }
 
     public void ExitToMainMenu() {
+        SoundManager.soundManager.PlayEffect("ButtonClick");
         SceneManager.LoadScene("MainMenuScene");
     }
 }
