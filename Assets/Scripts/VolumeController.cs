@@ -9,6 +9,7 @@ public class VolumeController : MonoBehaviour
 
     void Awake() {
         UpdateButtonSprites();
+        SetSliderValues();
     }
 
     private void UpdateButtonSprites() {
@@ -36,5 +37,10 @@ public class VolumeController : MonoBehaviour
 
     public void EffectsVolume() {
         SoundManager.soundManager.EffectsVolume(effectsSlider.value);
+    }
+
+    private void SetSliderValues() {
+        musicSlider.value = SoundManager.soundManager.musicSource.volume;
+        effectsSlider.value = SoundManager.soundManager.effectsSource.volume;
     }
 }
