@@ -34,8 +34,10 @@ public class Slingshot : MonoBehaviour
 
     private void ControlAngles()
     {
-        // TODO: early return here? probably
-        if (LivesSystem.lives <= 0 && controlObject != null) controlObject.SetActive(false);
+        if (LivesSystem.lives <= 0 && controlObject != null) {
+            controlObject.SetActive(false);
+            return;
+        }
 
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
         if (slingItem == null || currentVelocity != Vector2.zero) { 
@@ -66,16 +68,16 @@ public class Slingshot : MonoBehaviour
     private void Sling()
     {
         var itemPhysics = slingItem.GetComponent<Rigidbody2D>();
-        const int strength = 8;
+        const int strength = 24;
 
         // calculate and add sling velocity, if there is none
         if (itemPhysics.velocity == Vector2.zero)
         {
             // sling physics 
-            // - TODO: apply constant speed by some x multiplier/scalar (strength var).
-            //         let the (slingItem.transform.position - centeredPos) calculation
-            //         determine the travel direction.
-            Vector3 force = -((slingItem.transform.position - centeredPos) * strength);
+            Vector3 force = centeredPos - slingItem.transform.position; // direction
+            force.Normalize(); // unit vector conversion (for constant speed)
+            force *= strength; // strength/speed scalar
+            // assigning force
             itemPhysics.velocity = force;
             // toggle collision physics
             slingItem.GetComponent<Collider2D>().enabled = true;
@@ -275,10 +277,7 @@ public class Slingshot : MonoBehaviour
 
     private void releasedHandler(object sender, System.EventArgs e)
     {
-        // TODO: can "ElasticPulling" be specifically stopped? 
-        // this stops every soundfx but its not that noticable unless theres lots of shit happening
-        // Will probably need to put ElasticPulling into its own EffectsSource
-        SoundManager.soundManager.effectsSource.Stop();
+        SoundManager.soundManager.pullingEffectsSource.Stop();
         SoundManager.soundManager.PlayEffect("ElasticFiring");
         Sling();
     }

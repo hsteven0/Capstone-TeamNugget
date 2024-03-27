@@ -1,4 +1,5 @@
 using System;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager soundManager;
     public Sound[] music, effects;
-    public AudioSource musicSource, effectsSource;
+    public AudioSource musicSource, effectsSource, pullingEffectsSource;
+    // separate AudioSource (pullingSrc) to cancel one specific sound ("ElasticPulling")
 
     void Awake() {
         if (soundManager == null) {
@@ -37,7 +39,11 @@ public class SoundManager : MonoBehaviour
             Debug.LogFormat("Sound (Effect) {} could not be found", sound);
             return;
         }
-        effectsSource.PlayOneShot(sound.clip);
+        if (name == "ElasticPulling") {
+            pullingEffectsSource.PlayOneShot(sound.clip);
+        } else {
+            effectsSource.PlayOneShot(sound.clip);
+        }
     }
 
     public void ToggleMusic() {
@@ -46,6 +52,7 @@ public class SoundManager : MonoBehaviour
 
     public void ToggleEffects() {
         effectsSource.mute = !effectsSource.mute;
+        pullingEffectsSource.mute = !pullingEffectsSource.mute;
     }
 
     public void MusicVolume(float volume) {
@@ -54,5 +61,6 @@ public class SoundManager : MonoBehaviour
 
     public void EffectsVolume(float volume) {
         effectsSource.volume = volume;
+        pullingEffectsSource.volume = volume;
     }
 }

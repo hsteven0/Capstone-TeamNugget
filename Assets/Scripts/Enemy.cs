@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collInfo) {
         if (collInfo.collider.CompareTag("Ground")) {
-            SoundManager.soundManager.PlayEffect("AsteroidImpact");
+            if (LivesSystem.lives > 0)
+                SoundManager.soundManager.PlayEffect("AsteroidImpact");
             LivesSystem.lives--;
         } else {
             SoundManager.soundManager.PlayEffect("AsteroidDeath");
