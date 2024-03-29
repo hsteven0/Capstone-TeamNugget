@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
             Debug.LogFormat("Sound (Effect) {} could not be found", sound);
             return;
         }
-        if (name == "ElasticPulling") {
+        if (name.Equals("ElasticPulling")) {
             pullingEffectsSource.PlayOneShot(sound.clip);
         } else {
             effectsSource.PlayOneShot(sound.clip);

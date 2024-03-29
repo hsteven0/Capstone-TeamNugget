@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class LivesSystem : MonoBehaviour
 {
     public GameOverScreen gameOverScreen;
-    private float prevTime;
-    private float idleTime;
     public static int lives;
     public Image[] hearts;
     public Sprite fullHeart, emptyHeart;
@@ -16,7 +14,6 @@ public class LivesSystem : MonoBehaviour
 
     void Start()
     {
-        prevTime = Time.timeScale;
         updateHearts = true;
         lives = 3;
     }
@@ -41,15 +38,6 @@ public class LivesSystem : MonoBehaviour
             GameOver();
             updateHearts = false; 
         }
-    }
-
-    private void PauseGame() {
-        // call when there are no more lives left
-        Time.timeScale = 0;
-    }
-
-    private void ResumeGame() {
-        Time.timeScale = prevTime;
     }
 
     public void GameOver() {

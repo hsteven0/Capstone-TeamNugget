@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameOverScreen : MonoBehaviour
@@ -15,11 +14,11 @@ public class GameOverScreen : MonoBehaviour
 
     public void RestartGame() {
         SoundManager.soundManager.PlayEffect("ButtonClick");
-        SceneManager.LoadScene("GameScene");
+        CircleTransition.circleTransition.ClosingScreen("GameScene");
     }
 
     public void ExitToMainMenu() {
         SoundManager.soundManager.PlayEffect("ButtonClick");
-        SceneManager.LoadScene("MainMenuScene");
+        CircleTransition.circleTransition.ClosingScreen("MainMenuScene");
     }
 }

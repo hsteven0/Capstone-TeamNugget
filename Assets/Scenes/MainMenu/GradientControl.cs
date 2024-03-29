@@ -24,11 +24,11 @@ public class GradientControl : MonoBehaviour
         colorBottom = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         reachedBottom = false;
         timer = 0.0f;
+        StartCoroutine(ColorFade(1.4f));
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
         // slowly reduce values over time
         // if (fadeStart < fadeDuration) {
         //     fadeStart += Time.deltaTime / fadeDuration;
@@ -48,29 +48,36 @@ public class GradientControl : MonoBehaviour
         //     reachedBottom = !reachedBottom;
         //     fadeStart = 0;
         // }
-        if (timer >= hueTimer) {
-            if (!hueDarkening) {
-                if (fadingHue > 0.6) {
-                    fadingHue -= 0.1F;
-                } else {
-                    hueDarkening = true;
-                }
-            } else {
-                if (fadingHue < 1) {
-                    fadingHue += 0.1F;
-                } else {
-                    hueDarkening = false;
-                }
-            }
-            timer -= hueTimer;
-        }
+
         foreach (TextMeshProUGUI text in textComponents) {
-            if (text.GetComponentInParent<Button>()) continue;
+            if (text.GetComponentInParent<Button>() || text.name.Equals("Ignore")) continue;
             text.faceColor = FadingBlue();
         }
     }
 
     private Color FadingBlue() {
         return Color.HSVToRGB(0.6F, fadingHue, 0.82f);
+    }
+
+    // better implementation of smoothly updating values over time
+    private IEnumerator ColorFade(float duration)
+    {
+        while (true)
+        {
+            if (!hueDarkening) {
+                if (fadingHue > 0.6) {
+                    fadingHue -= 0.005F;
+                } else {
+                    hueDarkening = true;
+                }
+            } else {
+                if (fadingHue < 1) {
+                    fadingHue += 0.005F;
+                } else {
+                    hueDarkening = false;
+                }
+            }
+            yield return null;
+        }
     }
 }

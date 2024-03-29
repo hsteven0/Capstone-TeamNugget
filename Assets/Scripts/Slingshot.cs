@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using TouchScript.Behaviors;
 using TouchScript.Gestures;
 using TouchScript.Gestures.TransformGestures;
-using System;
 
 public class Slingshot : MonoBehaviour
 {
@@ -208,7 +207,7 @@ public class Slingshot : MonoBehaviour
         return controlPos;
     }
 
-    private float GetBoundsBySlingshotName(String name)
+    private float GetBoundsBySlingshotName(string name)
     {
         switch (name)
         {

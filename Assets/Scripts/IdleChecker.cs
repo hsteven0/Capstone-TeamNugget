@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class IdleChecker : MonoBehaviour
 {
@@ -11,7 +8,7 @@ public class IdleChecker : MonoBehaviour
     void Start()
     {
         timer = 0;
-        idleTime = 65.0f;
+        idleTime = 55.0f;
     }
 
     void Update()
@@ -20,7 +17,7 @@ public class IdleChecker : MonoBehaviour
         
         timer += Time.deltaTime;
         if (timer >= idleTime) {
-            SceneManager.LoadScene("MainMenuScene");
+            CircleTransition.circleTransition.ClosingScreen("MainMenuScene");
         }
     }
 }
