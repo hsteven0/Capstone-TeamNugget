@@ -3,12 +3,13 @@ using TMPro;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextShadow, scoreText;
 
     public void Show() {
         if (LivesSystem.lives <= 0 && !gameObject.activeInHierarchy) {
             gameObject.SetActive(true);
             scoreText.text = "Score: " + GameScore.score;
+            scoreTextShadow.text = "Score: " + GameScore.score;
         }
     }
 

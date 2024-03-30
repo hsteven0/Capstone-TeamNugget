@@ -11,7 +11,7 @@ public class GameScore : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     void Start() {
-        scoreText.color = Color.black ; // change text color (dependent on background color)
+        // scoreText.color = Color.black ; // change text color (dependent on background color)
         score = 0;
     }
 

@@ -148,7 +148,7 @@ public class Slingshot : MonoBehaviour
         HideImage(image);
 
         // set the Canvas GameObject as parent
-        controlObject.transform.SetParent(GameObject.Find("Canvas").transform);
+        controlObject.transform.SetParent(GameObject.Find("ControlCanvas").transform);
         image.transform.localScale = Vector2.one;
     }
 
