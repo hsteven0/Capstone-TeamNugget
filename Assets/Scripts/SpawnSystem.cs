@@ -48,9 +48,7 @@ public class SpawnSystem : MonoBehaviour
                 else if (randVal > 8) {
                     SpawnRight() ;          //  20% chance
                 }
-                else {
-                    SpawnMiddle();          //  60% chance
-                }
+                SpawnMiddle();              // 100% chance
             }
             if (slingshots[2].layer == activeLayer) {
                 if (randVal % 2 == 1) {
@@ -61,17 +59,17 @@ public class SpawnSystem : MonoBehaviour
                 }
                 SpawnRight();               // 100% chance
             }
-            /* All 3 player scenarios, at MOST: 5 enemies spawn (for one outcome)
-            1 : 2L, 1M, 1R
-            2 : 2L, 1M, 1R
+            /* All 3 player scenarios, at MOST: 6 enemies spawn (for one outcome)
+            1 : 2L, 2M, 1R
+            2 : 2L, 2M, 1R
             3 : 1L, 2M, 1R
             4 : 1L, 2M, 1R
             5 : 1L, 2M, 1R
             6 : 1L, 2M, 1R
             7 : 1L, 2M, 1R
             8 : 2L, 2M, 2R
-            9 : 1L, 1M, 2R
-           10 : 1L, 1M, 2R 
+            9 : 1L, 2M, 2R
+           10 : 1L, 2M, 2R 
             */
 
             if ((slingshots[0].layer == activeLayer && slingshots[2].layer == activeLayer) || (slingshots[0].layer == activeLayer && slingshots[1].layer == activeLayer) || (slingshots[1].layer == activeLayer && slingshots[2].layer == activeLayer) ) {

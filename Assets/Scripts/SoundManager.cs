@@ -20,7 +20,8 @@ public class SoundManager : MonoBehaviour
     }
 
     void Start() {
-        PlayMusic("Thrash");
+        //PlayMusic("Thrash");
+        PlayMusic("dinodrum") ; 
     }
 
     public void PlayMusic(string name) {
