@@ -3904,8 +3904,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Game!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
-  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
+  m_sharedMaterial: {fileID: -8747664315048391808, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
