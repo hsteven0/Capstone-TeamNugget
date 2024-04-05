@@ -10,7 +10,7 @@ public class IdleChecker : MonoBehaviour
     {
         isTransitioning = false;
         timer = 0;
-        idleTime = 55.0f;
+        idleTime = 20.0f;
     }
 
     void Update()
