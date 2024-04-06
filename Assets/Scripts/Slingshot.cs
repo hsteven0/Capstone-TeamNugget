@@ -39,20 +39,14 @@ public class Slingshot : MonoBehaviour
         }
 
         Vector2 currentVelocity = slingItem.GetComponent<Rigidbody2D>().velocity;
+        DrawSlingLines();
         if (slingItem == null || currentVelocity != Vector2.zero) { 
             // funny rotations
             slingItem.transform.Rotate(0f, 0f, 620f * Time.deltaTime, Space.Self);
 
-            // TODO: redo this; make it so that elastic string becomes visible and lineRenderer
-            // is disabled when slingItem collides with the elastic string, instead of 
-            // being instantly disabled and spawned when slinging. Also, need to limit
-            // stretch distance somehow to prevent wonky rendering (most likely 
-            // requires an additional script attached to the elastic string. this script
-            // will let it collide until some stretch check returns true, and turns off 
-            // collision with the slingItem)
-            if (lineRenderer.enabled) {
+            if (lineRenderer.enabled && CheckStringCollision()) {
                 lineRenderer.enabled = false;
-                SpawnElasticString();
+                ShouldStringRender(true);
             }
             return;
         }
@@ -60,7 +54,6 @@ public class Slingshot : MonoBehaviour
             lineRenderer.enabled = true;
             DeleteElasticString();
         }
-        DrawSlingLines();
         slingItem.transform.position = SetControlPosition();
     }
 
@@ -80,6 +73,7 @@ public class Slingshot : MonoBehaviour
             itemPhysics.velocity = force;
             // toggle collision physics
             slingItem.GetComponent<Collider2D>().enabled = true;
+            SpawnElasticString();
 
             // someone used the slingshot; make the slingshot active if it isn't
             if (gameObject.layer != activeLayer && force != Vector3.zero) {
@@ -167,7 +161,6 @@ public class Slingshot : MonoBehaviour
 
     private void DrawSlingLines()
     {
-        LineRenderer lineRenderer = GetComponent<LineRenderer>();
         float dist = Vector3.Distance(slingItem.transform.position, centeredPos);
         // Vector3 positions are subject to change upon new Slingshot asset design
         lineRenderer.SetPosition(0, new Vector3(centeredPos.x - 0.95f, -8.1f, 0.0f));
@@ -177,8 +170,17 @@ public class Slingshot : MonoBehaviour
 
     private void SpawnElasticString() {
         elasticObj = Instantiate(clonedElastic.gameObject);
+        ShouldStringRender(false);
         elasticObj.transform.SetParent(transform);
         elasticObj.transform.position = new Vector3(centeredPos.x - 0.95f, -8.1f, 0.0f);
+    }
+
+    private bool CheckStringCollision() {
+        return elasticObj.GetComponentInChildren<CapsuleCollider2D>().IsTouchingLayers();
+    }
+
+    private void ShouldStringRender(bool shouldRender) {
+        elasticObj.GetComponentInChildren<SkinnedMeshRenderer>().enabled = shouldRender;
     }
 
     private void DeleteElasticString() {

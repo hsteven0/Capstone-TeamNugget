@@ -3670,9 +3670,9 @@ GameObject:
   - component: {fileID: 1861543761}
   - component: {fileID: 1861543755}
   - component: {fileID: 1861543759}
-  - component: {fileID: 1861543760}
   - component: {fileID: 1861543762}
   - component: {fileID: 1861543763}
+  - component: {fileID: 1861543764}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3780,18 +3780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c027744021a7d3c46a720f83ed93775f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1861543760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861543754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a439860e687af245a4680d896672141, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1861543761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3843,6 +3831,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75305d233341cfa42a276f84a110958f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1861543764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861543754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a439860e687af245a4680d896672141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2106533064
@@ -3904,8 +3904,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Game!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
-  m_sharedMaterial: {fileID: -8747664315048391808, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5ddc0688b2cbd0f4ea50d7f8867d65fc, type: 2}
+  m_sharedMaterial: {fileID: 6019815949610029966, guid: 5ddc0688b2cbd0f4ea50d7f8867d65fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3929,8 +3929,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
