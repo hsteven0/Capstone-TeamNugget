@@ -446,6 +446,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1460295513314082119, guid: c6c049521ad414d3abb1f4dbfbefc442, type: 3}
   - {fileID: 1000724949976791029, guid: 0aa752e77577d4e52ae01d6f22931c48, type: 3}
+  slingshots: []
 --- !u!4 &320571194
 Transform:
   m_ObjectHideFlags: 0
@@ -585,8 +586,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Score: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 093c2f206fd200044a463fa68c0b8880, type: 2}
-  m_sharedMaterial: {fileID: 4280131978474634291, guid: 093c2f206fd200044a463fa68c0b8880, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -728,7 +729,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 3.69}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1416647479

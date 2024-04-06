@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 155432037}
   - component: {fileID: 155432036}
   m_Layer: 5
-  m_Name: Havoc
+  m_Name: Dinos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: -200}
-  m_SizeDelta: {x: 1000, y: 315}
+  m_AnchoredPosition: {x: 300, y: -200}
+  m_SizeDelta: {x: 3000, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155432036
 MonoBehaviour:
@@ -560,17 +560,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Havoc
+  m_text: ' Dinos go?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
-  m_sharedMaterial: {fileID: -629163953448556552, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292467161
-  m_fontColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    rgba: 4282621017
+  m_fontColor: {r: 0.35003927, g: 0.6132076, b: 0.26321647, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 0
   m_fontColorGradient:
@@ -587,8 +587,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 280
-  m_fontSizeBase: 280
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -671,8 +671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 520, y: -220}
-  m_SizeDelta: {x: 1000, y: 315}
+  m_AnchoredPosition: {x: 280, y: -220}
+  m_SizeDelta: {x: 3000, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156411048
 MonoBehaviour:
@@ -694,10 +694,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Havoc
+  m_text: ' Dinos Go?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
-  m_sharedMaterial: {fileID: -629163953448556552, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -721,8 +721,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 280
-  m_fontSizeBase: 280
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1702,7 +1702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951820211}
   m_Layer: 5
-  m_Name: Hurling
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1721,8 +1721,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1769915695}
-  - {fileID: 156411047}
   - {fileID: 2136235669}
+  - {fileID: 156411047}
   - {fileID: 155432035}
   m_Father: {fileID: 1861543758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2152,6 +2152,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 317e6218f2326b8449db017705c77a7c, type: 3}
   - name: Thrash
     clip: {fileID: 8300000, guid: 38c4083db11364a40a7397930f07b329, type: 3}
+  - name: dinodrum
+    clip: {fileID: 8300000, guid: aae17da19b3fc4c69af485f6aeb7da25, type: 3}
   effects:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: 2fdde1e47108b9e4d9312e97b42f7875, type: 3}
@@ -2219,7 +2221,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 53
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2882,13 +2884,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.585
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 168
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -3329,8 +3331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 540, y: -20}
-  m_SizeDelta: {x: 1120, y: 315}
+  m_AnchoredPosition: {x: 780, y: -20}
+  m_SizeDelta: {x: 2000, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769915696
 MonoBehaviour:
@@ -3352,10 +3354,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hurling
+  m_text: Where Did The
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
-  m_sharedMaterial: {fileID: -629163953448556552, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3379,8 +3381,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 280
-  m_fontSizeBase: 280
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3596,7 +3598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1830789022
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3902,8 +3904,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play Game!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ddc0688b2cbd0f4ea50d7f8867d65fc, type: 2}
-  m_sharedMaterial: {fileID: 6019815949610029966, guid: 5ddc0688b2cbd0f4ea50d7f8867d65fc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
+  m_sharedMaterial: {fileID: -8747664315048391808, guid: bd612b0ef8042fe4fade5a7abcbe84d2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3927,8 +3929,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3989,7 +3991,7 @@ GameObject:
   - component: {fileID: 2136235671}
   - component: {fileID: 2136235670}
   m_Layer: 5
-  m_Name: Hurling
+  m_Name: Where Did The
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4011,8 +4013,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 560, y: 0}
-  m_SizeDelta: {x: 1120, y: 315}
+  m_AnchoredPosition: {x: 800, y: 0}
+  m_SizeDelta: {x: 2000, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2136235670
 MonoBehaviour:
@@ -4034,17 +4036,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hurling
+  m_text: Where Did The
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
-  m_sharedMaterial: {fileID: -629163953448556552, guid: d8029ecceba1bc94086df15c5052402c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
+  m_sharedMaterial: {fileID: 2714497387625424653, guid: cfb8c6c8b1008084cae754e2c9eadfbc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292467161
-  m_fontColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    rgba: 4282621017
+  m_fontColor: {r: 0.34901962, g: 0.6117647, b: 0.2627451, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 0
   m_fontColorGradient:
@@ -4061,8 +4063,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 280
-  m_fontSizeBase: 280
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
