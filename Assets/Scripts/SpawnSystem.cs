@@ -8,12 +8,13 @@ public class SpawnSystem : MonoBehaviour
     public GameObject[] enemies, slingshots;
 
     private int activeLayer; // a reference to the "Active" layer
-    private float timer, spawnDelay, slingshotBounds;
+    private float timer, totalTime, spawnDelay, slingshotBounds;
 
 
     void Start() {
         // time stuff
         timer = 0.0f;
+        totalTime = 0.0f;
         spawnDelay = 3.5f;
         // screen stuff
         slingshotBounds = Screen.width / 3;
@@ -23,39 +24,38 @@ public class SpawnSystem : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-        // if time has reached spawn delay time
-
+        StartTimer();
         // Random number generator; favors SpawnMiddle()
-        int randVal = Random.Range(1,11) ; 
+        int randVal = Random.Range(1,11); 
 
+        // if time has reached spawn delay time
         if (timer >= spawnDelay) {
             // spawn at slingshot location bounds if it is active
             // less probability to spawn to far side, more likely in activeLayer and middle
             if (slingshots[0].layer == activeLayer) {
                 if (randVal % 2 == 0) {     //  50% chance   
-                    SpawnMiddle() ; 
+                    SpawnMiddle(); 
                 }
                 else if (randVal == 1) {    //  10% chance
-                    SpawnRight() ; 
+                    SpawnRight();  
                 }
                 SpawnLeft();                // 100% chance
             }
             if (slingshots[1].layer == activeLayer) {
                 if (randVal < 3) {
-                    SpawnLeft() ;           //  20% chance  
+                    SpawnLeft();            //  20% chance  
                 }
                 else if (randVal > 8) {
-                    SpawnRight() ;          //  20% chance
+                    SpawnRight();           //  20% chance
                 }
                 SpawnMiddle();              // 100% chance
             }
             if (slingshots[2].layer == activeLayer) {
                 if (randVal % 2 == 1) {
-                    SpawnMiddle() ;         //  50% chance
+                    SpawnMiddle();          //  50% chance
                 }
                 else if (randVal == 8) {
-                    SpawnLeft() ;           //  10% chance
+                    SpawnLeft();            //  10% chance
                 }
                 SpawnRight();               // 100% chance
             }
@@ -72,12 +72,37 @@ public class SpawnSystem : MonoBehaviour
            10 : 1L, 2M, 2R 
             */
 
-            if ((slingshots[0].layer == activeLayer && slingshots[2].layer == activeLayer) || (slingshots[0].layer == activeLayer && slingshots[1].layer == activeLayer) || (slingshots[1].layer == activeLayer && slingshots[2].layer == activeLayer) ) {
-                spawnDelay = 5.0f ; // increases spawnDelay to offset difficulty given 3 players
-            }
-
+            IncreaseDifficulty(timer);
             // subtract spawnDelay time from total time; this is more accurate over time
             timer -= spawnDelay;
+        }
+    }
+
+    private void IncreaseDifficulty(float time) {
+        if (totalTime < 125.0f) totalTime += time; // stop counting after time reaches 125 seconds
+        if (totalTime < 25.0f && spawnDelay < 5.5f) {
+            if ((slingshots[0].layer == activeLayer && slingshots[2].layer == activeLayer) || (slingshots[0].layer == activeLayer && slingshots[1].layer == activeLayer) || (slingshots[1].layer == activeLayer && slingshots[2].layer == activeLayer))
+                spawnDelay = 5.5f; // increases spawnDelay to offset difficulty given 3 players at the start
+        }
+        // things can get serious pretty quickly; be mindful of spawnDelay values
+        else if (totalTime > 25.0f && totalTime < 45.0f) spawnDelay = 5.0f;
+        else if (totalTime > 45.0f && totalTime < 65.0f) spawnDelay = 4.5f;
+        else if (totalTime > 65.0f && totalTime < 80.0f) spawnDelay = 4.0f;
+        else if (totalTime > 80.0f && totalTime < 120.0f) spawnDelay = 3.0f;
+    }
+
+    private void StartTimer() {
+        // only increment timer here
+        if (timer > 0) {
+            timer += Time.deltaTime;
+            return;
+        }
+        foreach (var slingshot in slingshots) {
+            // if A slingshot's layer is the active layer, start the timer and break the loop
+            if (slingshot.layer == activeLayer) {
+                timer += Time.deltaTime;
+                break;
+            }
         }
     }
 
