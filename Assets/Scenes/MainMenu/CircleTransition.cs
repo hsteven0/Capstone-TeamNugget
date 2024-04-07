@@ -34,18 +34,6 @@ public class CircleTransition : MonoBehaviour
         DrawBlackScreen();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            OpeningScreen();
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            ClosingScreen();
-        }
-    }
-
     public void OpeningScreen()
     {
         DrawBlackScreen();

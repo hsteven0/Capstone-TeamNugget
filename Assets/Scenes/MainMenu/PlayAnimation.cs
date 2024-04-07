@@ -3,27 +3,64 @@ using UnityEngine;
 public class PlayAnimation : MonoBehaviour
 {
     private Animator anim;
-    private bool isOpen;
+    private bool optionsOpen, creditsOpen;
+    private float timer, closeTimer;
 
     void Start()
     {
-        isOpen = false;
+        // timer will keep incrementing until we get to 45s right when it fully opens.
+        // so keep it relatively high so user has time to change sound options, or read the credited names
+        closeTimer = 45.0f;
+        timer = 0f;
+
+        optionsOpen = false;
+        creditsOpen = false;
         anim = GetComponent<Animator>();
     }
 
+    void Update() {
+        if (optionsOpen || creditsOpen) {
+            timer += Time.deltaTime;
+            if (timer >= closeTimer) {
+                if (optionsOpen) CloseOptions();
+                else if (creditsOpen) CloseCredits();
+            }
+        } else {
+            timer = 0f;
+        }
+    }
+
     public void DisplayOptions() {
-        if (anim != null && !isOpen) {
+        if (creditsOpen) CloseCredits();
+        if (anim != null && !optionsOpen) {
             SoundManager.soundManager.PlayEffect("ButtonClick");
             anim.SetTrigger("OptionsPressed");
-            isOpen = true;
+            optionsOpen = true;
         }
     }
 
     public void CloseOptions() {
-        if (anim != null && isOpen) {
+        if (anim != null && optionsOpen) {
             SoundManager.soundManager.PlayEffect("ButtonClick");
             anim.Play("Base Layer.Return", 0, 0);
-            isOpen = false;
+            optionsOpen = false;
+        }
+    }
+
+    public void DisplayCredits() {
+        if (optionsOpen) CloseOptions();
+        if (anim != null && !creditsOpen) {
+            SoundManager.soundManager.PlayEffect("ButtonClick");
+            anim.SetTrigger("CreditsPressed");
+            creditsOpen = true;
+        }
+    }
+
+    public void CloseCredits() {
+        if (anim != null && creditsOpen) {
+            SoundManager.soundManager.PlayEffect("ButtonClick");
+            anim.Play("Base Layer.Credits Return", 0, 0);
+            creditsOpen = false;
         }
     }
 

@@ -66,7 +66,7 @@ public class Slingshot : MonoBehaviour
         if (itemPhysics.velocity == Vector2.zero)
         {
             // sling physics 
-            Vector3 force = centeredPos - slingItem.transform.position; // direction
+            Vector3 force = centeredPos - slingItem.transform.position; // force direction
             force.Normalize(); // unit vector conversion (for constant speed)
             force *= strength; // strength/speed scalar
             // assigning force
@@ -162,7 +162,6 @@ public class Slingshot : MonoBehaviour
     private void DrawSlingLines()
     {
         float dist = Vector3.Distance(slingItem.transform.position, centeredPos);
-        // Vector3 positions are subject to change upon new Slingshot asset design
         lineRenderer.SetPosition(0, new Vector3(centeredPos.x - 0.95f, -8.1f, 0.0f));
         lineRenderer.SetPosition(1, (dist <= diameter + 0.1f) ? slingItem.transform.position : centeredPos);
         lineRenderer.SetPosition(2, new Vector3(centeredPos.x + 0.95f, -8.1f, 0.0f));
@@ -176,6 +175,8 @@ public class Slingshot : MonoBehaviour
     }
 
     private bool CheckStringCollision() {
+        // layers refers to "SlingItems" layer, which is the only layer included in the ElasticString prefab
+        // therefore, this returns true when the SlingItem (the dinos) touches the string
         return elasticObj.GetComponentInChildren<CapsuleCollider2D>().IsTouchingLayers();
     }
 
@@ -225,6 +226,7 @@ public class Slingshot : MonoBehaviour
     {
         // this function hides an image from view, by setting its opacity to 0
         var col = image.color;
+        // for dev, see if panels are in correct positions
         // if (gameObject.name == "Slingshot Left") {
         //     col.a = 0.33f;
         // } else if (gameObject.name == "Slingshot Right") {
@@ -242,23 +244,6 @@ public class Slingshot : MonoBehaviour
             IdleChecker.slingshotActive = true;
     }
 
-    private void CancelGestures()
-    {
-        // NOTE: for future implementation, may not be needed at all
-        //       - there is a chance that gestures will be cancelled for us if
-        //       - dragging finger over the little gap between panels stops taking input
-        // If the above statement is not true, here is a template to cancel gestures.
-        // Logic is still needed to determine when gestures should be cancelled (finger not in panel bounds).
-
-        // cancel press, release and transform gestures when 
-        // player's touch/finger is out of panel
-        var transformGesture = controlObject.GetComponent<TransformGesture>();
-        var pressGesture = GetComponent<PressGesture>();
-
-        if (transformGesture != null) transformGesture.Cancel();
-        if (pressGesture != null) pressGesture.Cancel();
-    }
-
     private void RegisterGestures()
     {
         controlObject.GetComponent<PressGesture>().Pressed += pressedHandler;
@@ -273,12 +258,10 @@ public class Slingshot : MonoBehaviour
 
     private void pressedHandler(object sender, System.EventArgs e)
     {
-        SoundManager.soundManager.PlayEffect("ElasticPulling");
     }
 
     private void releasedHandler(object sender, System.EventArgs e)
     {
-        SoundManager.soundManager.pullingEffectsSource.Stop();
         SoundManager.soundManager.PlayEffect("ElasticFiring");
         Sling();
     }

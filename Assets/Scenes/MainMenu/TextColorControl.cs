@@ -9,14 +9,14 @@ This class controls the color of all TextMeshProUI's in the Canvas GameObject
 */
 public class TextColorControl : MonoBehaviour
 {
-    private float timer, fadingHue = 1F;
+    public float hue;
+    private float fadingHue = 1F;
     private bool hueDarkening;
     private TextMeshProUGUI[] textComponents;
 
     void Start() {
         textComponents = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
-        timer = 0.0f;
-        StartCoroutine(ColorFade(1.4f));
+        StartCoroutine(ColorFade());
     }
 
     void Update()
@@ -28,30 +28,26 @@ public class TextColorControl : MonoBehaviour
     }
 
     private Color FadingBlue() {
-        return Color.HSVToRGB(0.6F, fadingHue, 0.82f);
+        return Color.HSVToRGB(hue, fadingHue, 0.82f);
     }
 
     // better implementation of smoothly updating values over time
-    private IEnumerator ColorFade(float duration)
+    private IEnumerator ColorFade()
     {
         while (true)
         {
-            timer += Time.deltaTime;
-            if (timer <= duration) {
-                if (!hueDarkening) {
-                    if (fadingHue > 0.6) {
-                        fadingHue -= 0.005F;
-                    } else {
-                        hueDarkening = true;
-                    }
+            if (!hueDarkening) {
+                if (fadingHue > 0.6) {
+                    fadingHue -= 0.005F;
                 } else {
-                    if (fadingHue < 1) {
-                        fadingHue += 0.005F;
-                    } else {
-                        hueDarkening = false;
-                    }
+                    hueDarkening = true;
                 }
-                timer -= duration;
+            } else {
+                if (fadingHue < 1) {
+                    fadingHue += 0.005F;
+                } else {
+                    hueDarkening = false;
+                }
             }
             yield return null;
         }
