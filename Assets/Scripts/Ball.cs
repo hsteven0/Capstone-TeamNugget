@@ -25,7 +25,8 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.collider.CompareTag("Enemies")) return;
+        if (LivesSystem.lives <= 0 || !collision.collider.CompareTag("Enemies")) return;
+        // calculate points if an enemy is hit and we are not game over'ed
         UpdatePoints();
         killCount++;
     }
