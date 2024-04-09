@@ -72,7 +72,8 @@ public class SpawnSystem : MonoBehaviour
            10 : 1L, 2M, 2R 
             */
 
-            IncreaseDifficulty(timer);
+            if (GameScore.score > 100000) spawnDelay = 1.0f; // for the pros...
+            else IncreaseDifficulty(timer);
             // subtract spawnDelay time from total time; this is more accurate over time
             timer -= spawnDelay;
         }
@@ -85,10 +86,10 @@ public class SpawnSystem : MonoBehaviour
                 spawnDelay = 5.5f; // increases spawnDelay to offset difficulty given 3 players at the start
         }
         // things can get serious pretty quickly; be mindful of spawnDelay values
-        else if (totalTime > 25.0f && totalTime < 45.0f) spawnDelay = 5.0f;
-        else if (totalTime > 45.0f && totalTime < 65.0f) spawnDelay = 4.5f;
-        else if (totalTime > 65.0f && totalTime < 80.0f) spawnDelay = 4.0f;
-        else if (totalTime > 80.0f && totalTime < 120.0f) spawnDelay = 3.0f;
+        else if (totalTime > 25.0f && totalTime < 45.0f) spawnDelay = 4.5f;
+        else if (totalTime > 45.0f && totalTime < 70.0f) spawnDelay = 4.0f;
+        else if (totalTime > 70.0f && totalTime < 90.0f) spawnDelay = 3.5f;
+        else if (totalTime > 90.0f && totalTime < 120.0f) spawnDelay = 2.0f;
     }
 
     private void StartTimer() {

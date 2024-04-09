@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class GameScore : MonoBehaviour
 {
-    public static int points = 100;
+    public static int points;
     public static int score;
     public TextMeshProUGUI scoreText;
 
     void Start() {
         // scoreText.color = Color.black ; // change text color (dependent on background color)
         score = 0;
+        points = 100;
     }
 
     void Update() {

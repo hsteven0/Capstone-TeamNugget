@@ -15,10 +15,21 @@ public class Ball : MonoBehaviour
         oldAmount = GameScore.points;
     }
 
+    void Awake() {
+        killCount = 0;
+        oldAmount = GameScore.points;
+    }
+
     // gets every object that is destroyed on the scene
     void OnDestroy() {
         // check only for SlingItem tag
         if (!gameObject.CompareTag("SlingItem")) return;
+        // encountered a weird glitch, where the starting points is 200 instead of 100 for the first 
+        // kill for each dino slung.
+        // game restarts didnt seem to fix itself. added condition here and a new Awake() hook (line 18)
+        if (oldAmount != 100) {
+            oldAmount = 100;
+        }
         killCount = 0;
         GameScore.points = oldAmount;
     }
