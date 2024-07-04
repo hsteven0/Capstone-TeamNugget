@@ -14,11 +14,14 @@ public class Slingshot : MonoBehaviour
     private int activeLayer; // a reference to the "Active" layer
     private const float diameter = 3.75f; // circlular bounds for SlingItem when aiming
     private LineRenderer lineRenderer;
+    private Texture2D panelSize;
+
 
     void Start()
     {
         activeLayer = LayerMask.NameToLayer("Active");
         centeredPos = new Vector3(gameObject.transform.position.x, -8, 0);
+        panelSize = new Texture2D(Screen.width / 3, Screen.height); // 1/3 of the screen width; size of one panel
         CreateSlingItem();
         CreateLineRenderer();
         DisplayFinger();
@@ -113,7 +116,6 @@ public class Slingshot : MonoBehaviour
 
     private void CreateControlObject()
     {
-        var panelSize = new Texture2D(Screen.width / 3, Screen.height); // 1/3 of the screen width; size of one panel
         controlObject = new GameObject
         {
             name = "ControlObject"
